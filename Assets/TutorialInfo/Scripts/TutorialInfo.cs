@@ -25,19 +25,19 @@ public class TutorialInfo : MonoBehaviour
     public static string showAtStartPrefsKey = "showLaunchScreen";
 
     // used to ensure that the launch screen isn't more than once per play session if the project reloads the main scene
-    private static bool alreadyShownThisSession = false;
+    private static bool _alreadyShownThisSession = false;
 
 
     private void Awake()
     {
         // have we already shown this once?
-        if (alreadyShownThisSession)
+        if (_alreadyShownThisSession)
         {
             StartGame();
         }
         else
         {
-            alreadyShownThisSession = true;
+            _alreadyShownThisSession = true;
 
             // Check player prefs for show at start preference
             if (PlayerPrefs.HasKey(showAtStartPrefsKey)) showAtStart = PlayerPrefs.GetInt(showAtStartPrefsKey) == 1;

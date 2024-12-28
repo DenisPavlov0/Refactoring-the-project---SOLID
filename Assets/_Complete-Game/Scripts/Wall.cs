@@ -11,13 +11,13 @@ namespace Completed
         public int hp = 3; //hit points for the wall.
 
 
-        private SpriteRenderer spriteRenderer; //Store a component reference to the attached SpriteRenderer.
+        private SpriteRenderer _spriteRenderer; //Store a component reference to the attached SpriteRenderer.
 
 
         private void Awake()
         {
             //Get a component reference to the SpriteRenderer.
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
 
@@ -28,7 +28,7 @@ namespace Completed
             SoundManager.instance.RandomizeSfx(chopSound1, chopSound2);
 
             //Set spriteRenderer to the damaged wall sprite.
-            spriteRenderer.sprite = dmgSprite;
+            _spriteRenderer.sprite = dmgSprite;
 
             //Subtract loss from hit point total.
             hp -= loss;
